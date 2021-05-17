@@ -31,10 +31,10 @@ const PAutorStyled = styled.p`
 `;
 
 const DivButStyled = styled.div`
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
 
 const ButtonStyled = styled.button`
   width: 12vw;
@@ -44,10 +44,10 @@ const ButtonStyled = styled.button`
   border: none;
   color: #fff;
   font-size: 1.4rem;
-  :hover{
-      background-color: #fff;
-      color: ${color};
-      border: solid 2px ${color}
+  :hover {
+    background-color: #fff;
+    color: ${color};
+    border: solid 2px ${color};
   }
 `;
 
@@ -104,17 +104,14 @@ const Box = () => {
               <i className="fas fa-quote-right"></i>
             </PCitaStyled>
             <PAutorStyled id="author"> - {autor}</PAutorStyled>
-            <DivButStyled className='interaccion-container'>
+            <DivButStyled className="interaccion-container">
               <a
                 target="_blank"
-                to={`https://twitter.com/intent/tweet/?text="${cita}" -${autor}&hashtags=citaDeldía`}
+                href={`https://twitter.com/intent/tweet/?text="${cita}" -${autor}&hashtags=citaDeldía`}
               >
                 <AIconStyled className="fab fa-twitter-square"></AIconStyled>
               </a>
-              <ButtonStyled
-                id="new-quote"
-                onClick={() => incremento()}
-              >
+              <ButtonStyled id="new-quote" onClick={() => incremento()}>
                 Nueva cita
               </ButtonStyled>
             </DivButStyled>
