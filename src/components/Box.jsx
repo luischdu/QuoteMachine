@@ -106,7 +106,6 @@ const Box = () => {
             <PAutorStyled id="author"> - {autor}</PAutorStyled>
             <DivButStyled className="interaccion-container">
               <a
-                target="_blank"
                 href={`https://twitter.com/intent/tweet/?text="${cita}" -${autor}&hashtags=citaDeldía`}
               >
                 <AIconStyled className="fab fa-twitter-square"></AIconStyled>
