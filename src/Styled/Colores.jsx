@@ -13,4 +13,4 @@ const Colores = [
   "#73A857",
 ];
 
-export default Colores[3];
+export default Colores[Math.floor(Math.random() * Colores.length)]
