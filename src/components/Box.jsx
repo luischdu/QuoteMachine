@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { useFetch } from "../Hooks/useFetch.jsx";
 import Colores from "../Styled/Colores.jsx";
@@ -102,7 +102,7 @@ const Box = (props) => {
   const { cita, autor } = !!data && data;
 
   return (
-    <MainStyled style={{ backgroundColor: `${color}` }}>
+    <MainStyled >
       {loading ? (
         <div onLoad={() => loading} className="alert alert-info text-center">
           loading...
