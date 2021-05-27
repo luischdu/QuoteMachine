@@ -63,8 +63,8 @@ const ButtonStyled = styled.button`
   font-size: 1.2vw;
   :hover {
     background-color: #fff;
-    color: ${color};
-    border: solid 2px ${color};
+    color:black;
+    border: solid 2px white;
   }
 `;
 
@@ -85,12 +85,8 @@ const AStyled = styled.a`
     color: blue;
   }
 `;
-const AIconStyled = styled.a`
-  width: 20px;
-  text-decoration: none;
-  color: ${color};
-`;
-const Box = (props) => {
+
+const Box = () => {
   const [state, setState] = useState(1);
   const incremento = () => {
     setState(Math.floor(Math.random() * 102));
@@ -99,10 +95,10 @@ const Box = (props) => {
   const { data, loading } = useFetch(
     `https://api-quote-machine.herokuapp.com/citas/${state}`
   );
-  const { cita, autor } = !!data && data;
+  const { cita, autor, color } = !!data && data;
 
   return (
-    <MainStyled >
+    <MainStyled style={{ background: `${color}` }}>
       {loading ? (
         <div onLoad={() => loading} className="alert alert-info text-center">
           loading...
@@ -110,22 +106,30 @@ const Box = (props) => {
       ) : (
         <div>
           <BoxStyled>
-            <PCitaStyled>
+            <PCitaStyled style={{ color: `${color}` }}>
               <i className="fas fa-quote-left"> </i>
               <span> </span>
               {cita}
               <span> </span>
               <i className="fas fa-quote-right"></i>
             </PCitaStyled>
-            <PAutorStyled id="author"> - {autor}</PAutorStyled>
+            <PAutorStyled id="author" style={{ color: `${color}` }}>
+              {" "}
+              - {autor}
+            </PAutorStyled>
             <DivButStyled className="interaccion-container">
-              <AIconStyled
+              <div
+                style={{ color: `${color}` }}
                 href={`https://twitter.com/intent/tweet/?text="${cita}" -${autor}&hashtags=citaDeldía`}
                 target="_blanck"
               >
                 <i className="fab fa-twitter-square"></i>
-              </AIconStyled>
-              <ButtonStyled id="new-quote" onClick={() => incremento()}>
+              </div>
+              <ButtonStyled
+                id="new-quote"
+                style={{ background: `${color}` }}
+                onClick={() => incremento()}
+              >
                 Nueva cita
               </ButtonStyled>
             </DivButStyled>
